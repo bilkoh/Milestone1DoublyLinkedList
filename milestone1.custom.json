@@ -1,0 +1,17 @@
+{
+  "DoublyLinkedList": [
+    {
+      "testCase1": [
+        {
+          "insertAtHead": 5
+        },
+        {
+          "removeHeaderNode": {}
+        },
+        {
+          "isEmpty": {}
+        }
+      ]
+    }
+  ]
+}
