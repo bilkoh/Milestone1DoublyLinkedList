@@ -4,7 +4,6 @@
 - implements testing via GTest [See test_main.cc](https://github.com/bilkoh/Milestone1DoublyLinkedList/blob/main/test_main.cc)
 
 ## Todo
-- remove
 - moveNodeToHead
 - moveNodeToTail
 - generate_output.cpp 

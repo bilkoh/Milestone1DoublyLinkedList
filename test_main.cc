@@ -45,28 +45,32 @@ TEST_F(DoublyLinkedListTest, InsertAtTailMultiple) {
   EXPECT_EQ(list.tail->key, 30);
 }
 
-// TEST_F(DoublyLinkedListTest, RemoveFromEmpty) {
-//   list.remove(5);
-//   EXPECT_TRUE(list.isEmpty());
-// }
+// remove Tests
+// --------------------
+TEST_F(DoublyLinkedListTest, RemoveFromEmpty) {
+  list.remove(5);
+  EXPECT_TRUE(list.isEmpty());
+}
 
-// TEST_F(DoublyLinkedListTest, RemoveSingleNode) {
-//   list.insertAtHead(42);
-//   list.remove(42);
-//   EXPECT_TRUE(list.isEmpty());
-// }
+TEST_F(DoublyLinkedListTest, RemoveSingleNode) {
+  list.insertAtHead(42);
+  list.remove(42);
+  EXPECT_TRUE(list.isEmpty());
+}
 
-// TEST_F(DoublyLinkedListTest, RemoveMultipleNodes) {
-//   list.insertAtTail(10);
-//   list.insertAtTail(20);
-//   list.insertAtTail(30);
-//   list.remove(20);
-//   EXPECT_EQ(list.head->key, 10);
-//   EXPECT_EQ(list.tail->key, 30);
-//   list.remove(10);
-//   EXPECT_EQ(list.head->key, 30);
-//   EXPECT_EQ(list.tail->key, 30);
-// }
+TEST_F(DoublyLinkedListTest, RemoveMultipleNodes) {
+  list.insertAtTail(10);
+  list.insertAtTail(20);
+  list.insertAtTail(30);
+  list.remove(20);
+  EXPECT_EQ(list.head->key, 10);
+  EXPECT_EQ(list.tail->key, 30);
+  list.remove(10);
+  EXPECT_EQ(list.head->key, 30);
+  EXPECT_EQ(list.tail->key, 30);
+  list.remove(30);
+  EXPECT_TRUE(list.isEmpty());
+}
 
 // removeHeaderNode Tests
 // --------------------

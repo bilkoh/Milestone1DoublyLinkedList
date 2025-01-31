@@ -9,6 +9,7 @@
 #include "doubly_linked_list.h"
 #include "dll_node.h"
 #include "doubly_linked_list.h"
+#include <cstddef>
 
 DoublyLinkedList::DoublyLinkedList() : head(nullptr), tail(nullptr) {}
 
@@ -47,10 +48,34 @@ void DoublyLinkedList::insertAtTail(int key) {
 }
 
 void DoublyLinkedList::remove(int key) {
-  // TODO: Implement remove
-  // TODO: Waiting to implement hash
   if (isEmpty())
     return;
+
+  DllNode *node = findNode(key);
+
+  if (node == nullptr)
+    return;
+
+  // Case: node is only node in list
+  // Case: node is head or tail
+  if (node == head) {
+    removeHeaderNode();
+  } else if (node == tail) {
+    removeTailNode();
+  } else {
+    // Case: removing from middle
+    DllNode *prevNode = node->prev;
+    DllNode *nextNode = node->next;
+
+    if (prevNode != nullptr)
+      prevNode->next = nextNode;
+
+    if (nextNode != nullptr)
+      nextNode->prev = prevNode;
+
+    node_map.erase(key);
+    delete node;
+  }
 }
 
 void DoublyLinkedList::removeHeaderNode() {
