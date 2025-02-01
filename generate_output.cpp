@@ -1,12 +1,22 @@
 #include "generate_output.h"
+#include "dll_node.h"
 #include "doubly_linked_list.h"
-
+#include <iostream>
 
 void printList(DoublyLinkedList &list) {
-  // TODO: Implement printList
+  DllNode *curr = list.head;
+  while (curr) {
+    std::cout << curr->key << " ";
+    curr = curr->next;
+  }
+  std::cout << std::endl;
 }
 
-// Function to print the list in reverse
 void reversePrintList(DoublyLinkedList &list) {
-  // TODO: Implement reversePrintList
+  DllNode *curr = list.tail;
+  while (curr) {
+    std::cout << curr->key << " ";
+    curr = curr->prev;
+  }
+  std::cout << std::endl;
 }

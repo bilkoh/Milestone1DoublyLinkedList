@@ -4,4 +4,3 @@
 - implements testing via GTest [See test_main.cc](https://github.com/bilkoh/Milestone1DoublyLinkedList/blob/main/test_main.cc)
 
 ## Todo
-- generate_output.cpp 
