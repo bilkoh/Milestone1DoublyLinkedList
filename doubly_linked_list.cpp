@@ -67,10 +67,10 @@ void DoublyLinkedList::remove(int key) {
     DllNode *prevNode = node->prev;
     DllNode *nextNode = node->next;
 
-    if (prevNode != nullptr)
+    if (prevNode)
       prevNode->next = nextNode;
 
-    if (nextNode != nullptr)
+    if (nextNode)
       nextNode->prev = prevNode;
 
     node_map.erase(key);
@@ -111,11 +111,86 @@ void DoublyLinkedList::removeTailNode() {
 }
 
 void DoublyLinkedList::moveNodeToHead(int key) {
-  // TODO: Implement moveNodeToHead
+  if (isEmpty())
+    return;
+
+  DllNode *node = findNode(key);
+
+  if (node == nullptr || node == head)
+    return;
+
+  // reposition next and prev pointers
+  if (node == tail) {
+    // Case: moving tail to head
+    tail = tail->prev;
+    if (tail)
+      // Case: avoid issues w/ only one node in list
+      tail->next = nullptr;
+
+  } else {
+    // Case: moving a middle node
+    DllNode *prevNode = node->prev;
+    DllNode *nextNode = node->next;
+    if (prevNode)
+      prevNode->next = nextNode;
+
+    if (nextNode)
+      nextNode->prev = prevNode;
+  }
+
+  // insertion
+  node->prev = nullptr;
+  node->next = head;
+
+  if (!head) {
+    // if empty list
+    head = tail = node;
+
+  } else {
+    head->prev = node;
+    head = node;
+  }
 }
 
 void DoublyLinkedList::moveNodeToTail(int key) {
-  // TODO: Implement moveNodeToTail
+  if (isEmpty())
+    return;
+
+  DllNode *node = findNode(key);
+
+  if (node == nullptr || node == tail)
+    return;
+
+  // reposition next and prev pointers
+  if (node == head) {
+    // Case moving head to tail
+    head = head->next;
+    if (head)
+      head->prev = nullptr;
+
+  } else {
+    // Case: moving a middle node
+    DllNode *prevNode = node->prev;
+    DllNode *nextNode = node->next;
+    if (prevNode)
+      prevNode->next = nextNode;
+
+    if (nextNode)
+      nextNode->prev = prevNode;
+  }
+
+  // insertion
+  node->next = nullptr;
+  node->prev = tail;
+
+  if (!tail) {
+    // if empty list
+    head = tail = node;
+
+  } else {
+    tail->next = node;
+    tail = node;
+  }
 }
 
 void DoublyLinkedList::clear() {

@@ -11,7 +11,8 @@ protected:
 
   void TearDown() override { list.clear(); }
 };
-
+// Insert Tests
+// --------------------
 TEST_F(DoublyLinkedListTest, IsEmptyInitially) { EXPECT_TRUE(list.isEmpty()); }
 
 TEST_F(DoublyLinkedListTest, InsertAtHeadSingle) {
@@ -171,55 +172,59 @@ TEST_F(DoublyLinkedListTest, FindNodeAfterRemoval) {
   EXPECT_EQ(node->key, 2);
 }
 
-// TEST_F(DoublyLinkedListTest, MoveNodeToHeadNotFound) {
-//   list.insertAtTail(1);
-//   list.insertAtTail(2);
-//   list.moveNodeToHead(3);
-//   EXPECT_EQ(list.head->key, 1);
-//   EXPECT_EQ(list.tail->key, 2);
-// }
+// moveNodeToHead Tests
+// --------------------
+TEST_F(DoublyLinkedListTest, MoveNodeToHeadNotFound) {
+  list.insertAtTail(1);
+  list.insertAtTail(2);
+  list.moveNodeToHead(3);
+  EXPECT_EQ(list.head->key, 1);
+  EXPECT_EQ(list.tail->key, 2);
+}
 
-// TEST_F(DoublyLinkedListTest, MoveNodeToHeadWhenAlreadyHead) {
-//   list.insertAtTail(1);
-//   list.insertAtTail(2);
-//   list.moveNodeToHead(1);
-//   EXPECT_EQ(list.head->key, 1);
-//   EXPECT_EQ(list.tail->key, 2);
-// }
+TEST_F(DoublyLinkedListTest, MoveNodeToHeadWhenAlreadyHead) {
+  list.insertAtTail(1);
+  list.insertAtTail(2);
+  list.moveNodeToHead(1);
+  EXPECT_EQ(list.head->key, 1);
+  EXPECT_EQ(list.tail->key, 2);
+}
 
-// TEST_F(DoublyLinkedListTest, MoveNodeToHeadFromTail) {
-//   list.insertAtTail(1);
-//   list.insertAtTail(2);
-//   list.insertAtTail(3);
-//   list.moveNodeToHead(3);
-//   EXPECT_EQ(list.head->key, 3);
-//   EXPECT_EQ(list.tail->key, 2);
-// }
+TEST_F(DoublyLinkedListTest, MoveNodeToHeadFromTail) {
+  list.insertAtTail(1);
+  list.insertAtTail(2);
+  list.insertAtTail(3);
+  list.moveNodeToHead(3);
+  EXPECT_EQ(list.head->key, 3);
+  EXPECT_EQ(list.tail->key, 2);
+}
 
-// TEST_F(DoublyLinkedListTest, MoveNodeToTailNotFound) {
-//   list.insertAtTail(1);
-//   list.insertAtTail(2);
-//   list.moveNodeToTail(3);
-//   EXPECT_EQ(list.head->key, 1);
-//   EXPECT_EQ(list.tail->key, 2);
-// }
+// moveNodeToTail Tests
+// --------------------
+TEST_F(DoublyLinkedListTest, MoveNodeToTailNotFound) {
+  list.insertAtTail(1);
+  list.insertAtTail(2);
+  list.moveNodeToTail(3);
+  EXPECT_EQ(list.head->key, 1);
+  EXPECT_EQ(list.tail->key, 2);
+}
 
-// TEST_F(DoublyLinkedListTest, MoveNodeToTailWhenAlreadyTail) {
-//   list.insertAtTail(1);
-//   list.insertAtTail(2);
-//   list.moveNodeToTail(2);
-//   EXPECT_EQ(list.head->key, 1);
-//   EXPECT_EQ(list.tail->key, 2);
-// }
+TEST_F(DoublyLinkedListTest, MoveNodeToTailWhenAlreadyTail) {
+  list.insertAtTail(1);
+  list.insertAtTail(2);
+  list.moveNodeToTail(2);
+  EXPECT_EQ(list.head->key, 1);
+  EXPECT_EQ(list.tail->key, 2);
+}
 
-// TEST_F(DoublyLinkedListTest, MoveNodeToTailFromHead) {
-//   list.insertAtTail(1);
-//   list.insertAtTail(2);
-//   list.insertAtTail(3);
-//   list.moveNodeToTail(1);
-//   EXPECT_EQ(list.head->key, 2);
-//   EXPECT_EQ(list.tail->key, 1);
-// }
+TEST_F(DoublyLinkedListTest, MoveNodeToTailFromHead) {
+  list.insertAtTail(1);
+  list.insertAtTail(2);
+  list.insertAtTail(3);
+  list.moveNodeToTail(1);
+  EXPECT_EQ(list.head->key, 2);
+  EXPECT_EQ(list.tail->key, 1);
+}
 
 // TEST_F(DoublyLinkedListTest, ClearEmptyList) {
 //   list.clear();
