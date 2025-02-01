@@ -9,7 +9,6 @@
 #include "doubly_linked_list.h"
 #include "dll_node.h"
 #include "doubly_linked_list.h"
-#include <cstddef>
 
 DoublyLinkedList::DoublyLinkedList() : head(nullptr), tail(nullptr) {}
 
