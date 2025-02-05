@@ -4,3 +4,4 @@
 - implements testing via GTest [See test_main.cc](https://github.com/bilkoh/Milestone1DoublyLinkedList/blob/main/test_main.cc)
 
 ## Todo
+- Double check testCase2 to testCase5
