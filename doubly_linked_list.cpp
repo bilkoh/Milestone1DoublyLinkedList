@@ -1,21 +1,56 @@
 /**
-*
-* @author - Bilal Kohgadai
-* @file doubly_linked_list.cpp -  My implementation of DLL.
-
-01/27/2025 - initial creation
-
-*/
+ *
+ * @author - Bilal Kohgadai
+ * @file doubly_linked_list.cpp -  My implementation of DLL.
+ * @date 01/27/2025
+ * @brief Implementation of the DoublyLinkedList class.
+ * @see doubly_linked_list.h
+ * @see dll_node.h
+ *
+ * This file contains the implementation of the DoublyLinkedList class, which
+ * provides a doubly linked list data structure.
+ *
+ */
 #include "doubly_linked_list.h"
 #include "dll_node.h"
 #include "doubly_linked_list.h"
 
+/**
+ * @brief Constructs a new DoublyLinkedList object.
+ *
+ * This constructor initializes an empty doubly linked list by setting
+ * both the head and tail pointers to nullptr.
+ */
 DoublyLinkedList::DoublyLinkedList() : head(nullptr), tail(nullptr) {}
 
+/**
+ * @brief Doubly Linked List object
+ *
+ */
 DoublyLinkedList::~DoublyLinkedList() { clear(); }
 
+/**
+ *
+ * isEmpty
+ *
+ * Method to check if the list is empty
+ *
+ * @param    nothing
+ *
+ * @return   true if head pointer is nullptr, otherwise return false
+ */
 bool DoublyLinkedList::isEmpty() { return (head == nullptr); }
 
+/**
+ *
+ * insertAtHead
+ *
+ * Method to insert a new node at the head of the list
+ *
+ * @param key    key for node to insert
+ *
+ * @return       nothing; updates doubly linked list and size
+ */
 void DoublyLinkedList::insertAtHead(int key) {
   DllNode *newNode = new DllNode(key);
   node_map[key] = newNode;
@@ -31,6 +66,16 @@ void DoublyLinkedList::insertAtHead(int key) {
   }
 }
 
+/**
+ *
+ * insertAtTail
+ *
+ * Method to insert a new node at the tail of the list
+ *
+ * @param key    key for node to insert
+ *
+ * @return       nothing; updates doubly linked list and size
+ */
 void DoublyLinkedList::insertAtTail(int key) {
   DllNode *newNode = new DllNode(key);
   node_map[key] = newNode;
@@ -46,6 +91,16 @@ void DoublyLinkedList::insertAtTail(int key) {
   }
 }
 
+/**
+ *
+ * remove
+ *
+ * Method to remove a node with a specific value from the list
+ *
+ * @param key    key for node to insert
+ *
+ * @return       nothing; updates doubly linked list
+ */
 void DoublyLinkedList::remove(int key) {
   if (isEmpty())
     return;
@@ -77,6 +132,16 @@ void DoublyLinkedList::remove(int key) {
   }
 }
 
+/**
+ *
+ * removeHeaderNode
+ *
+ * Method to remove the header node (first node)
+ *
+ * @param        none
+ *
+ * @return       nothing; updates doubly linked list
+ */
 void DoublyLinkedList::removeHeaderNode() {
   if (isEmpty())
     return;
@@ -93,6 +158,16 @@ void DoublyLinkedList::removeHeaderNode() {
   delete oldHead;
 }
 
+/**
+ *
+ * removeTailNode
+ *
+ * Method to remove the tail node (last node)
+ *
+ * @param        none
+ *
+ * @return       nothing; updates doubly linked list
+ */
 void DoublyLinkedList::removeTailNode() {
   if (isEmpty())
     return;
@@ -109,6 +184,16 @@ void DoublyLinkedList::removeTailNode() {
   delete oldTail;
 }
 
+/**
+ *
+ * moveNodeToHead
+ *
+ * Method to move a specific node to the head of the list
+ *
+ * @param key    key for node to move
+ *
+ * @return       nothing; updates doubly linked list
+ */
 void DoublyLinkedList::moveNodeToHead(int key) {
   if (isEmpty())
     return;
@@ -151,6 +236,16 @@ void DoublyLinkedList::moveNodeToHead(int key) {
   }
 }
 
+/**
+ *
+ * moveNodeToTail
+ *
+ * Method to move a specific node to the tail of the list
+ *
+ * @param key    key for node to move
+ *
+ * @return       nothing; updates doubly linked list
+ */
 void DoublyLinkedList::moveNodeToTail(int key) {
   if (isEmpty())
     return;
@@ -192,6 +287,16 @@ void DoublyLinkedList::moveNodeToTail(int key) {
   }
 }
 
+/**
+ *
+ * clear
+ *
+ * Method to clear the list by deleting all nodes
+ *
+ * @param        none
+ *
+ * @return       nothing; reset size to 0
+ */
 void DoublyLinkedList::clear() {
   DllNode *curr = head;
 
@@ -205,6 +310,16 @@ void DoublyLinkedList::clear() {
   node_map.clear();
 }
 
+/**
+ *
+ * findNode
+ *
+ * Method to find a node with a specific key
+ *
+ * @param key    key for node to find
+ *
+ * @return       pointer to the node if found, otherwise nullptr
+ */
 DllNode *DoublyLinkedList::findNode(int key) {
   return node_map.count(key) ? node_map[key] : nullptr;
 }
