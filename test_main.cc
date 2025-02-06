@@ -226,18 +226,20 @@ TEST_F(DoublyLinkedListTest, MoveNodeToTailFromHead) {
     EXPECT_EQ(list.tail->key, 1);
 }
 
-// TEST_F(DoublyLinkedListTest, ClearEmptyList) {
-//   list.clear();
-//   EXPECT_TRUE(list.isEmpty());
-// }
+// Destructor/clear Tests
+// --------------------
+TEST_F(DoublyLinkedListTest, ClearEmptyList) {
+    list.clear();
+    EXPECT_TRUE(list.isEmpty());
+}
 
-// TEST_F(DoublyLinkedListTest, ClearNonEmptyList) {
-//   list.insertAtTail(1);
-//   list.insertAtTail(2);
-//   list.insertAtTail(3);
-//   list.clear();
-//   EXPECT_TRUE(list.isEmpty());
-// }
+TEST_F(DoublyLinkedListTest, ClearNonEmptyList) {
+    list.insertAtTail(1);
+    list.insertAtTail(2);
+    list.insertAtTail(3);
+    list.clear();
+    EXPECT_TRUE(list.isEmpty());
+}
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
