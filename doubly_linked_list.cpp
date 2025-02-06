@@ -55,7 +55,7 @@ void DoublyLinkedList::insertAtHead(int key) {
     DllNode *newNode = new DllNode(key);
     node_map[key] = newNode;
 
-    if (head == nullptr) {
+    if (head == nullptr) { // Case: empty list
         head = tail = newNode;
     } else {
         DllNode *oldHead = head;
@@ -79,7 +79,7 @@ void DoublyLinkedList::insertAtTail(int key) {
     DllNode *newNode = new DllNode(key);
     node_map[key] = newNode;
 
-    if (head == nullptr) {
+    if (head == nullptr) { // Case: empty list
         head = tail = newNode;
     } else {
         DllNode *oldTail = tail;
@@ -100,7 +100,7 @@ void DoublyLinkedList::insertAtTail(int key) {
  * @return       nothing; updates doubly linked list
  */
 void DoublyLinkedList::remove(int key) {
-    if (isEmpty())
+    if (isEmpty()) // Case: empty list
         return;
 
     DllNode *node = findNode(key);
