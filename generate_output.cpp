@@ -1,3 +1,13 @@
+/**
+ * @file generate_output.cpp
+ * @author Bilal Kohgadai
+ * @brief helper functions for printing out DoublyLinkedList
+ * @version 0.1
+ * @date 2025-02-05
+ *
+ * @copyright Copyright (c) 2025
+ *
+ */
 #include "generate_output.h"
 #include "dll_node.h"
 #include "doubly_linked_list.h"
