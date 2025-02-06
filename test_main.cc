@@ -1,3 +1,12 @@
+/**
+ * @file test_main.cc
+ * @author Bilal Kohgadai
+ * @brief GTest for development and extra credit
+ * @date 2025-02-05
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 #include "doubly_linked_list.h"
 #include <gtest/gtest.h>
 
